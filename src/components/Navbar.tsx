@@ -3,22 +3,36 @@ import { Link } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "../hooks/useTheme";
+import { useScroll } from "../hooks/useScroll";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { scrolled, activeSection, scrollToSection } = useScroll();
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
+    <nav className={cn(
+      "fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 transition-all duration-300",
+      scrolled && "border-b shadow-sm"
+    )}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="text-xl font-semibold">
           Portfolio
         </Link>
         <div className="flex items-center gap-6">
-          <Link to="/about" className="hover:text-primary/80 transition">About</Link>
-          <Link to="/projects" className="hover:text-primary/80 transition">Projects</Link>
-          <Link to="/blog" className="hover:text-primary/80 transition">Blog</Link>
-          <Link to="/gallery" className="hover:text-primary/80 transition">Gallery</Link>
-          <Link to="/contact" className="hover:text-primary/80 transition">Contact</Link>
+          {["about", "projects", "blog", "gallery", "contact"].map((item) => (
+            <Link
+              key={item}
+              to={`/${item}`}
+              className={cn(
+                "hover:text-primary/80 transition capitalize",
+                activeSection === item && "text-primary"
+              )}
+              onClick={(e) => scrollToSection(e, item)}
+            >
+              {item}
+            </Link>
+          ))}
           <Button
             variant="ghost"
             size="icon"
