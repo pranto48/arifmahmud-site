@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { ParticlesBackground } from "../components/Particles";
 
 const Index = () => {
   return (
@@ -10,8 +10,9 @@ const Index = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 font-poppins"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 font-poppins relative overflow-hidden"
     >
+      <ParticlesBackground />
       <div className="relative mb-8">
         <img 
           src="/lovable-uploads/4007d0de-0116-401a-a8f5-f5541cbbe3ac.png" 
