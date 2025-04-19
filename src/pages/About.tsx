@@ -9,11 +9,18 @@ const About = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto px-4 pt-24 min-h-screen"
+      className="container mx-auto px-4 pt-24 min-h-screen font-poppins"
     >
-      <h1 className="text-4xl font-bold mb-8">About Me</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">About Me</h1>
       <div className="grid md:grid-cols-2 gap-12">
-        <div className="prose dark:prose-invert max-w-none">
+        <div className="flex justify-center items-center">
+          <img 
+            src="/lovable-uploads/4007d0de-0116-401a-a8f5-f5541cbbe3ac.png" 
+            alt="Arif Mahmud" 
+            className="w-64 h-64 rounded-full object-cover border-4 border-primary shadow-lg hover:scale-105 transition-transform"
+          />
+        </div>
+        <div className="prose dark:prose-invert max-w-none font-nunito">
           <h2 className="text-2xl font-semibold mb-4">IT Professional & Web Designer</h2>
           <p className="text-lg mb-6">
             I am an IT professional and web designer based in Dhaka, Bangladesh. I have extensive 
@@ -44,19 +51,19 @@ const About = () => {
             </Button>
           </div>
         </div>
-        <div className="flex flex-col gap-6">
-          <h3 className="text-2xl font-semibold">Education</h3>
-          <div className="space-y-4">
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium">Bachelor of Arts (BA)</h4>
-              <p className="text-muted-foreground">Jatir pita bangabandhu college</p>
-              <p className="text-sm text-muted-foreground">2015-2018 | Completed</p>
-            </div>
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium">HSC | Informatic Practices</h4>
-              <p className="text-muted-foreground">Jatir pita bangabandhu college</p>
-              <p className="text-sm text-muted-foreground">2011-2013 | Completed</p>
-            </div>
+      </div>
+      <div className="mt-12">
+        <h3 className="text-2xl font-semibold text-center mb-6">Education</h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="border p-4 rounded-lg bg-background">
+            <h4 className="font-medium text-lg">Bachelor of Arts (BA)</h4>
+            <p className="text-muted-foreground">Jatir pita bangabandhu college</p>
+            <p className="text-sm text-muted-foreground">2015-2018 | Completed</p>
+          </div>
+          <div className="border p-4 rounded-lg bg-background">
+            <h4 className="font-medium text-lg">HSC | Informatic Practices</h4>
+            <p className="text-muted-foreground">Jatir pita bangabandhu college</p>
+            <p className="text-sm text-muted-foreground">2011-2013 | Completed</p>
           </div>
         </div>
       </div>

@@ -10,12 +10,19 @@ const Index = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 font-poppins"
     >
+      <div className="relative mb-8">
+        <img 
+          src="/lovable-uploads/4007d0de-0116-401a-a8f5-f5541cbbe3ac.png" 
+          alt="Arif Mahmud" 
+          className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-primary shadow-lg hover:scale-105 transition-transform"
+        />
+      </div>
       <h1 className="text-5xl font-bold mb-4">
         Hi There,<br/> I'm <span className="text-primary">Arif Mahmud</span>
       </h1>
-      <p className="text-xl text-muted-foreground max-w-2xl mb-8">
+      <p className="text-xl text-muted-foreground max-w-2xl mb-8 font-nunito">
         I'm an IT professional and web designer based in Dhaka, Bangladesh. 
         I specialize in building beautiful and functional web experiences.
       </p>
