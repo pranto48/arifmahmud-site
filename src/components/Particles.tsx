@@ -2,7 +2,7 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
+import { loadFull } from "tsparticles"; // This import will now work with the installed package
 import { particlesConfig } from "../config/particlesConfig";
 
 export const ParticlesBackground = () => {

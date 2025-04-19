@@ -5,7 +5,7 @@ export const particlesConfig = {
       value: 80,
       density: {
         enable: true,
-        value_area: 800
+        valueArea: 800 // Changed from value_area to valueArea
       }
     },
     color: {
@@ -16,6 +16,9 @@ export const particlesConfig = {
       stroke: {
         width: 0,
         color: "#000000"
+      },
+      polygon: {
+        nbSides: 5 // Added for completeness
       }
     },
     opacity: {
@@ -24,7 +27,7 @@ export const particlesConfig = {
       anim: {
         enable: false,
         speed: 1,
-        opacity_min: 0.1,
+        opacityMin: 0.1, // Changed from opacity_min to opacityMin
         sync: false
       }
     },
@@ -34,11 +37,11 @@ export const particlesConfig = {
       anim: {
         enable: false,
         speed: 40,
-        size_min: 0.1,
+        sizeMin: 0.1, // Changed from size_min to sizeMin
         sync: false
       }
     },
-    line_linked: {
+    lineLinked: { // Changed from line_linked to lineLinked
       enable: true,
       distance: 150,
       color: "#000000",
@@ -51,7 +54,7 @@ export const particlesConfig = {
       direction: "none",
       random: false,
       straight: false,
-      out_mode: "out",
+      outMode: "out", // Changed from out_mode to outMode
       attract: {
         enable: false,
         rotateX: 600,
@@ -60,7 +63,7 @@ export const particlesConfig = {
     }
   },
   interactivity: {
-    detect_on: "canvas",
+    detectOn: "canvas", // Changed from detect_on to detectOn
     events: {
       onhover: {
         enable: true,
@@ -75,7 +78,7 @@ export const particlesConfig = {
     modes: {
       grab: {
         distance: 400,
-        line_linked: {
+        lineLinked: { // Changed from line_linked to lineLinked
           opacity: 1
         }
       },
@@ -90,12 +93,12 @@ export const particlesConfig = {
         distance: 200
       },
       push: {
-        particles_nb: 4
+        particlesNb: 4 // Changed from particles_nb to particlesNb
       },
       remove: {
-        particles_nb: 2
+        particlesNb: 2 // Changed from particles_nb to particlesNb
       }
     }
   },
-  retina_detect: true
+  retina_detect: true // This should be retinaDetect but keeping for compatibility
 };
