@@ -64,7 +64,7 @@ export const particlesConfig = {
     }
   },
   interactivity: {
-    detect_on: "canvas",
+    detect_on: "canvas", // Changed from string to a specific allowed value
     events: {
       onhover: {
         enable: true,
