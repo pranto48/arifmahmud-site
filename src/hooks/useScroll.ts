@@ -1,45 +1,34 @@
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const useScroll = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
+  const location = useLocation();
 
+  // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 60;
-      setScrolled(isScrolled);
-
-      // Find active section
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach((section) => {
-        const sectionHeight = section.clientHeight;
-        const sectionTop = (section as HTMLElement).offsetTop - 200;
-        const sectionId = section.getAttribute('id') || '';
-        
-        if (window.scrollY > sectionTop && window.scrollY < sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
-        }
-      });
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Update active section based on current route
+  useEffect(() => {
+    // Extract the section name from the path (remove leading slash)
+    const currentPath = location.pathname.slice(1);
+    setActiveSection(currentPath || 'home');
+  }, [location]);
+
+  // This function is kept for compatibility but won't be used in the Navbar
+  const scrollToSection = (e: React.MouseEvent, section: string) => {
+    // This function is maintained for backward compatibility
+    // It will not be used in our updated navigation
   };
 
-  return {
-    scrolled,
-    activeSection,
-    scrollToSection
-  };
+  return { scrolled, activeSection, scrollToSection };
 };

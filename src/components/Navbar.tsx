@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "../hooks/useTheme";
@@ -8,7 +8,13 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
-  const { scrolled, activeSection, scrollToSection } = useScroll();
+  const { scrolled } = useScroll();
+  const location = useLocation();
+
+  // Determine if a link is active based on current path
+  const isActive = (path: string) => {
+    return location.pathname === path || (location.pathname === '/' && path === '/');
+  };
 
   return (
     <nav className={cn(
@@ -20,18 +26,26 @@ const Navbar = () => {
           Portfolio
         </Link>
         <div className="flex items-center gap-6">
-          {["about", "projects", "blog", "gallery", "contact"].map((item) => (
-            <Link
-              key={item}
-              to={`/${item}`}
-              className={cn(
-                "hover:text-primary/80 transition capitalize",
-                activeSection === item && "text-primary"
-              )}
-              onClick={(e) => scrollToSection(e, item)}
-            >
-              {item}
-            </Link>
+          {[
+            { path: "/", label: "Home" },
+            { path: "/about", label: "About" },
+            { path: "/projects", label: "Projects" },
+            { path: "/blog", label: "Blog" },
+            { path: "/gallery", label: "Gallery" },
+            { path: "/contact", label: "Contact" }
+          ].map((item) => (
+            item.path !== "/" && (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "hover:text-primary/80 transition capitalize",
+                  isActive(item.path) && "text-primary"
+                )}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
           <Button
             variant="ghost"
