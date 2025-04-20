@@ -1,5 +1,7 @@
 
-export const particlesConfig = {
+import type { RecursivePartial, IOptions } from "tsparticles-engine";
+
+export const particlesConfig: RecursivePartial<IOptions> = {
   particles: {
     number: {
       value: 50,
@@ -64,7 +66,7 @@ export const particlesConfig = {
     }
   },
   interactivity: {
-    detect_on: "canvas", // Changed from string to a specific allowed value
+    detect_on: "canvas",
     events: {
       onhover: {
         enable: true,
