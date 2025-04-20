@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
-import { Facebook, Youtube, Phone, Mail, MapPin, QrCode, WhatsApp, Contact } from "lucide-react";
-import QRCode from 'qrcode.react';
+import { Facebook, Youtube, Phone, Mail, MapPin, QrCode, UserPlus } from "lucide-react";
+import { QRCodeSVG } from 'qrcode.react';
 
 const Contact = () => {
   const contactInfo = {
@@ -93,7 +93,7 @@ END:VCARD`;
               </a>
               <a href={`https://wa.me/${contactInfo.phone.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon">
-                  <WhatsApp className="w-5 h-5" />
+                  <Phone className="w-5 h-5" />
                 </Button>
               </a>
             </div>
@@ -102,7 +102,7 @@ END:VCARD`;
 
         <div className="bg-card rounded-lg p-6 shadow-lg">
           <div className="text-center space-y-4">
-            <QRCode 
+            <QRCodeSVG 
               value={vCardData}
               size={200}
               level="H"
@@ -110,7 +110,7 @@ END:VCARD`;
             />
             <p className="text-sm text-muted-foreground">Scan to save contact</p>
             <Button onClick={downloadVCard} className="w-full">
-              <Contact className="w-5 h-5 mr-2" />
+              <UserPlus className="w-5 h-5 mr-2" />
               Download vCard
             </Button>
           </div>

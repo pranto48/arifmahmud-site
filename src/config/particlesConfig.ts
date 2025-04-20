@@ -2,14 +2,14 @@
 export const particlesConfig = {
   particles: {
     number: {
-      value: 80,
+      value: 50,
       density: {
         enable: true,
-        valueArea: 800 // Changed from value_area to valueArea
+        value_area: 800
       }
     },
     color: {
-      value: "#000000"
+      value: "#6366f1"
     },
     shape: {
       type: "circle",
@@ -18,7 +18,7 @@ export const particlesConfig = {
         color: "#000000"
       },
       polygon: {
-        nbSides: 5 // Added for completeness
+        nb_sides: 5
       }
     },
     opacity: {
@@ -27,34 +27,35 @@ export const particlesConfig = {
       anim: {
         enable: false,
         speed: 1,
-        opacityMin: 0.1, // Changed from opacity_min to opacityMin
+        opacity_min: 0.1,
         sync: false
       }
     },
     size: {
-      value: 5,
+      value: 3,
       random: true,
       anim: {
         enable: false,
         speed: 40,
-        sizeMin: 0.1, // Changed from size_min to sizeMin
+        size_min: 0.1,
         sync: false
       }
     },
-    lineLinked: { // Changed from line_linked to lineLinked
+    line_linked: {
       enable: true,
       distance: 150,
-      color: "#000000",
+      color: "#6366f1",
       opacity: 0.4,
       width: 1
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 2,
       direction: "none",
       random: false,
       straight: false,
-      outMode: "out", // Changed from out_mode to outMode
+      out_mode: "out",
+      bounce: false,
       attract: {
         enable: false,
         rotateX: 600,
@@ -63,11 +64,11 @@ export const particlesConfig = {
     }
   },
   interactivity: {
-    detectOn: "canvas", // Changed from detect_on to detectOn
+    detect_on: "canvas",
     events: {
       onhover: {
         enable: true,
-        mode: "repulse"
+        mode: "grab"
       },
       onclick: {
         enable: true,
@@ -77,8 +78,8 @@ export const particlesConfig = {
     },
     modes: {
       grab: {
-        distance: 400,
-        lineLinked: { // Changed from line_linked to lineLinked
+        distance: 140,
+        line_linked: {
           opacity: 1
         }
       },
@@ -90,15 +91,16 @@ export const particlesConfig = {
         speed: 3
       },
       repulse: {
-        distance: 200
+        distance: 200,
+        duration: 0.4
       },
       push: {
-        particlesNb: 4 // Changed from particles_nb to particlesNb
+        particles_nb: 4
       },
       remove: {
-        particlesNb: 2 // Changed from particles_nb to particlesNb
+        particles_nb: 2
       }
     }
   },
-  retina_detect: true // This should be retinaDetect but keeping for compatibility
+  retina_detect: true
 };

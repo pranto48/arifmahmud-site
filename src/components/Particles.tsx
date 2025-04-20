@@ -1,8 +1,8 @@
 
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
-import { loadFull } from "tsparticles"; // This import will now work with the installed package
+import { Engine } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
 import { particlesConfig } from "../config/particlesConfig";
 
 export const ParticlesBackground = () => {
@@ -10,7 +10,7 @@ export const ParticlesBackground = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+  const particlesLoaded = useCallback(async (container: any) => {
     console.log("Particles loaded", container);
   }, []);
 
@@ -19,7 +19,7 @@ export const ParticlesBackground = () => {
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      options={particlesConfig}
+      options={particlesConfig as any}
       className="absolute inset-0 -z-10"
     />
   );
