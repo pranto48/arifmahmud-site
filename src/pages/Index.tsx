@@ -1,8 +1,7 @@
-
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
-import { Facebook, Youtube, WhatsApp, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Facebook, Youtube, Globe, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { ParticlesBackground } from "../components/Particles";
 
 const Index = () => {
@@ -44,7 +43,7 @@ const Index = () => {
           <Youtube className="h-6 w-6" />
         </a>
         <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <WhatsApp className="h-6 w-6" />
+          <Globe className="h-6 w-6" />
         </a>
         <a href="https://www.linkedin.com/in/pranto48/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
           <Linkedin className="h-6 w-6" />
