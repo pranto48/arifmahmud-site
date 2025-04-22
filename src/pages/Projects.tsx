@@ -26,6 +26,27 @@ const projects = [
 ];
 
 const Projects = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -34,30 +55,39 @@ const Projects = () => {
       className="container mx-auto px-4 pt-24 min-h-screen"
     >
       <h1 className="text-4xl font-bold mb-8">Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
         {projects.map((project, index) => (
-          <Card key={index} className="hover:shadow-lg transition overflow-hidden">
-            <div className="aspect-video w-full overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover hover:scale-105 transition duration-300"
-              />
-            </div>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                {project.title}
-                <Button variant="ghost" size="icon" asChild>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
-                </Button>
-              </CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-          </Card>
+          <motion.div key={index} variants={item}>
+            <Card className="hover:shadow-lg transition overflow-hidden group">
+              <div className="aspect-video w-full overflow-hidden">
+                <motion.img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  {project.title}
+                  <Button variant="ghost" size="icon" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  </Button>
+                </CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
