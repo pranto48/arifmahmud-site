@@ -32,7 +32,7 @@ const Navbar = () => {
             { path: "/projects", label: "Projects" },
             { path: "/blog", label: "Blog" },
             { path: "/gallery", label: "Gallery" },
-            { path: "/contact", label: "Contact Us" }
+            { path: "/contact", label: "Contact" }
           ].map((item) => (
             item.path !== "/" && (
               <Link
