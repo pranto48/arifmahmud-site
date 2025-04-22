@@ -16,6 +16,12 @@ const projects = [
     description: "Best Website for Old Photo Art in Bangladesh. A platform dedicated to preserving and showcasing historical photographs and creating unique digital art from old photographs.",
     link: "https://bdold.com/",
     image: "/lovable-uploads/23d9b311-0c5f-44d6-badc-d90d5f52af61.png"
+  },
+  {
+    title: "Apparels Forum",
+    description: "Welcome to apparelsforum! We are a dedicated team of professionals who are passionate about quality. Our mission is to serve you with the best quality products. Founded in 2021, we have been on a journey to provide our customers with the best software.",
+    link: "https://apparelsforum.com/",
+    image: "/lovable-uploads/e7033d0c-e58a-40d4-8b97-24991ca3ae93.png"
   }
 ];
 
