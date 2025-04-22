@@ -4,6 +4,36 @@ import { Badge } from "../components/ui/badge";
 
 const posts = [
   {
+    title: "Completed Google Data Analytics Professional Certificate",
+    description: "Successfully completed the comprehensive Google Data Analytics specialization, developing expertise in data analysis tools and methodologies.",
+    date: "2023-12-25",
+    image: "/lovable-uploads/34877d60-33de-4534-bd71-5b9b3ee3c705.png",
+    content: `I'm excited to announce the completion of the Google Data Analytics Professional Certificate program. This comprehensive specialization consisted of 8 courses, requiring approximately 6 months at 10 hours per week to complete.
+
+    Courses completed:
+    • Foundations: Data, Data, Everywhere
+    • Ask Questions to Make Data-Driven Decisions
+    • Prepare Data for Exploration
+    • Process Data from Dirty to Clean
+    • Analyze Data to Answer Questions
+    • Share Data Through the Art of Visualization
+    • Data Analysis with R Programming
+    • Google Data Analytics Capstone: Complete a Case Study
+
+    Through this program, I gained proficiency in essential data analytics tools including spreadsheets, SQL, Tableau, and R programming. The certification verifies my ability to prepare, process, analyze, and share data effectively for informed decision-making.`,
+    skills: [
+      "Data Analysis",
+      "SQL",
+      "R Programming",
+      "Tableau",
+      "Data Visualization",
+      "Data Cleaning",
+      "Data Processing",
+      "Statistical Analysis"
+    ],
+    link: "https://www.coursera.org/account/accomplishments/professional-cert/WJV9G47TJREH?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof"
+  },
+  {
     title: "Achieved CCNA: Enterprise Networking, Security, and Automation Certification",
     description: "Cisco verifies successful completion of the Enterprise Networking, Security and Automation course with hands-on experience in scalable network architectures, security, and automation.",
     date: "2024-04-22",
