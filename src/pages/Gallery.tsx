@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -81,7 +80,6 @@ const IMAGES_PER_PAGE_DESKTOP = 3;
 const IMAGES_PER_PAGE_MOBILE = 1;
 
 const useImagesPerPage = () => {
-  // Responsive: 1 on <768px, 3 otherwise
   if (typeof window === "undefined") return IMAGES_PER_PAGE_DESKTOP;
   return window.innerWidth < 768 ? IMAGES_PER_PAGE_MOBILE : IMAGES_PER_PAGE_DESKTOP;
 };
@@ -91,9 +89,6 @@ const Gallery = () => {
   const [direction, setDirection] = useState<"left" | "right">("right");
   const [imagesPerPage, setImagesPerPage] = useState(useImagesPerPage());
 
-  // Listen to resize and update images per page for responsiveness
-  // This is safe since this is a page-level component
-  // (if SSR/hydration warnings ever arise, move to a useEffect with a 'hasMounted' state)
   if (typeof window !== "undefined") {
     window.onresize = () => {
       const perPage = window.innerWidth < 768 ? IMAGES_PER_PAGE_MOBILE : IMAGES_PER_PAGE_DESKTOP;
@@ -117,7 +112,6 @@ const Gallery = () => {
     setStartIdx((prev) => loop(prev - imagesPerPage));
   };
 
-  // Get visible images for current page (wrap around for looping)
   const getVisibleImages = () => {
     let vis: typeof images = [];
     for (let i = 0; i < imagesPerPage; i++) {
@@ -181,6 +175,10 @@ const Gallery = () => {
                         className="object-cover w-full h-[200px] md:h-[360px] transition-all duration-300"
                         draggable={false}
                         loading="lazy"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${img.src}`);
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
                       />
                     </div>
                   ))}
@@ -196,7 +194,6 @@ const Gallery = () => {
             <ArrowRight className="w-8 h-8" />
           </button>
         </div>
-        {/* Pagination dots */}
         <div className="flex gap-1 mt-6">
           {Array.from({ length: Math.ceil(total / imagesPerPage) }).map((_, i) => (
             <button
@@ -221,4 +218,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
