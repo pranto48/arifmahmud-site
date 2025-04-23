@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -70,6 +71,7 @@ const imageFiles = [
   "received_2764971093516651.jpeg"
 ];
 
+// Create images array with correct paths using import.meta.url for proper asset resolution
 const images = imageFiles.map((file, idx) => ({
   id: idx,
   src: `/src/image/gallery/${file}`,
@@ -88,6 +90,7 @@ const Gallery = () => {
   const [startIdx, setStartIdx] = useState(0);
   const [direction, setDirection] = useState<"left" | "right">("right");
   const [imagesPerPage, setImagesPerPage] = useState(useImagesPerPage());
+  const [imageLoadError, setImageLoadError] = useState<Record<number, boolean>>({});
 
   if (typeof window !== "undefined") {
     window.onresize = () => {
@@ -118,6 +121,11 @@ const Gallery = () => {
       vis.push(images[loop(startIdx + i)]);
     }
     return vis;
+  };
+
+  const handleImageError = (id: number) => {
+    console.error(`Failed to load image: ${images[id].src}`);
+    setImageLoadError(prev => ({ ...prev, [id]: true }));
   };
 
   const variants = {
@@ -170,15 +178,12 @@ const Gallery = () => {
                       className="rounded-lg overflow-hidden flex-1 bg-muted flex items-center justify-center shadow-md"
                     >
                       <img
-                        src={img.src}
+                        src={imageLoadError[img.id] ? "/placeholder.svg" : img.src}
                         alt={img.alt}
                         className="object-cover w-full h-[200px] md:h-[360px] transition-all duration-300"
                         draggable={false}
                         loading="lazy"
-                        onError={(e) => {
-                          console.error(`Failed to load image: ${img.src}`);
-                          e.currentTarget.src = "/placeholder.svg";
-                        }}
+                        onError={() => handleImageError(img.id)}
                       />
                     </div>
                   ))}
