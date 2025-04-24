@@ -1,7 +1,8 @@
-
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Clock, Server, Shield, Globe, Wrench } from "lucide-react";
+import { HackingAnimation } from "@/components/HackingAnimation";
 
 const services = [
   {
@@ -58,47 +59,86 @@ const services = [
 ];
 
 const Services = () => {
+  const [showHacking, setShowHacking] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHacking(false);
+    }, 5000); // Show hacking animation for 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="container mx-auto px-4 pt-24 pb-16 min-h-screen">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+    <>
+      <AnimatePresence>
+        {showHacking && <HackingAnimation />}
+      </AnimatePresence>
+      
+      <motion.div 
+        className="container mx-auto px-4 pt-24 pb-16 min-h-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: showHacking ? 5 : 0 }}
       >
-        <h1 className="text-4xl font-bold mb-8 text-center">
+        <motion.h1 
+          className="text-4xl font-bold mb-8 text-center"
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: showHacking ? 5.2 : 0.2 }}
+        >
           💼 Services Offered by Arif Mahmud Pranto
-        </h1>
-        <p className="text-lg text-center mb-12 max-w-3xl mx-auto">
+        </motion.h1>
+        
+        <motion.p 
+          className="text-lg text-center mb-12 max-w-3xl mx-auto"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: showHacking ? 5.4 : 0.4 }}
+        >
           Arif Mahmud Pranto is a seasoned IT professional and web designer based in Dhaka, Bangladesh. 
           With extensive experience in various IT domains, he offers a range of services tailored to meet 
           the needs of businesses and individuals.
-        </p>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        </motion.p>
+
+        <motion.div 
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: showHacking ? 5.6 : 0.6 }}
+        >
           {services.map((service, index) => (
-            <Card key={index} className="transition-all duration-300 hover:shadow-lg">
-              <CardHeader className="flex flex-row items-center gap-4">
-                {service.icon}
-                <CardTitle>{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4 text-muted-foreground">{service.description}</p>
-                <div className="space-y-2">
-                  <h4 className="font-semibold">Pricing:</h4>
-                  <ul className="list-disc list-inside space-y-1 text-sm">
-                    {service.pricing.map((price, idx) => (
-                      <li key={idx}>{price}</li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-muted-foreground mt-4 italic">
-                    Note: {service.note}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: (showHacking ? 5.8 : 0.8) + index * 0.1 }}
+            >
+              <Card className="transition-all duration-300 hover:shadow-lg hover:scale-105">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  {service.icon}
+                  <CardTitle>{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-4 text-muted-foreground">{service.description}</p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold">Pricing:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      {service.pricing.map((price, idx) => (
+                        <li key={idx}>{price}</li>
+                      ))}
+                    </ul>
+                    <p className="text-sm text-muted-foreground mt-4 italic">
+                      Note: {service.note}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
-    </div>
+    </>
   );
 };
 
