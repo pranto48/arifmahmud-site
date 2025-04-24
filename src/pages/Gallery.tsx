@@ -1,3 +1,4 @@
+
 import {
   Carousel,
   CarouselContent,
@@ -5,7 +6,7 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useRef } from "react";
 
-// Select 5 images for the gallery
+// Select all available gallery images
 const galleryImages = [
   {
     src: "/lovable-uploads/b6cac783-812c-4a99-b9af-86c14809f174.png",
