@@ -1,4 +1,3 @@
-
 import {
   Carousel,
   CarouselContent,
@@ -50,7 +49,7 @@ const Gallery = () => {
     <div className="container mx-auto px-4 pt-24 min-h-screen">
       <h1 className="text-4xl font-bold mb-8 text-center">Gallery</h1>
       <div className="flex justify-center">
-        <div className="w-full max-w-2xl">
+        <div className="w-full max-w-3xl">
           <Carousel
             ref={carouselRef}
             opts={{
@@ -66,23 +65,16 @@ const Gallery = () => {
             <CarouselContent>
               {galleryImages.map((img, idx) => (
                 <CarouselItem key={idx} className="flex flex-col items-center">
-                  <a
-                    href={img.src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    tabIndex={-1}
-                    className="block overflow-hidden rounded-lg shadow-lg w-full"
-                  >
+                  <div className="block overflow-hidden rounded-lg shadow-lg w-full">
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="object-contain w-full h-[500px] mx-auto transition-transform duration-300 hover:scale-105"
+                      className="object-cover w-full h-[600px] mx-auto transition-transform duration-300 hover:scale-105"
                     />
-                  </a>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* Hide arrows & pagination for minimal look */}
             <style>
               {`
                 [aria-roledescription='carousel'] [role='button'], 
