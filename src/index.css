@@ -132,4 +132,13 @@
       color: #00a000;
     }
   }
+
+  #particle-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  canvas {
+    display: block;
+  }
 }
