@@ -53,6 +53,11 @@
 
   html {
     scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  body {
+    @apply bg-transparent text-foreground min-h-screen;
   }
 
   html::-webkit-scrollbar {
@@ -69,9 +74,6 @@
 @layer base {
   * {
     @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 
@@ -93,52 +95,4 @@
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
-}
-
-@layer components {
-  .hacking-animation {
-    background: #000;
-    height: 100%;
-  }
-
-  .hacking-animation__text {
-    bottom: 0;
-    font-family: monospace;
-    font-size: 18px;
-    left: 0;
-    line-height: 1.5rem;
-    padding: 2rem;
-    position: absolute;
-    right: 0;
-    color: #00a000;
-  }
-
-  .hacking-animation__character {
-    animation: type 500ms linear;
-    color: #015c01;
-  }
-
-  @keyframes type {
-    0% {
-      background: #FFF;
-      color: #FFF;
-    }
-    5% {
-      background: transparent;
-      color: #FFF;
-    }
-    100% {
-      background: transparent;
-      color: #00a000;
-    }
-  }
-
-  #particle-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  canvas {
-    display: block;
-  }
 }
