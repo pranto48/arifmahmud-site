@@ -34,7 +34,9 @@ export const ParticleCanvas = () => {
     };
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Create a semi-transparent dark background
+      ctx.fillStyle = 'rgba(14, 23, 29, 0.85)'; // Deep navy with high opacity
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, i) => {
         particle.x += particle.vx;
