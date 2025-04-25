@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Clock, Server, Shield, Globe, Wrench } from "lucide-react";
@@ -66,8 +67,8 @@ const Services = () => {
     >
       <motion.h1 
         className="text-4xl font-bold mb-8 text-center"
-        initial={{ y: 20 }}
-        animate={{ y: 0 }}
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         💼 Services Offered by Arif Mahmud Pranto
@@ -96,8 +97,9 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+            whileHover={{ scale: 1.03 }}
           >
-            <Card className="transition-all duration-300 hover:shadow-lg hover:scale-105 bg-background/80 backdrop-blur-sm border-primary/20">
+            <Card className="transition-all duration-300 hover:shadow-lg bg-background/80 backdrop-blur-sm border-primary/20">
               <CardHeader className="flex flex-row items-center gap-4">
                 {service.icon}
                 <CardTitle>{service.title}</CardTitle>

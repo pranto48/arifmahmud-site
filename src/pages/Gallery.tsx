@@ -5,6 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 // Select all available gallery images
 const galleryImages = [
@@ -31,6 +32,7 @@ const galleryImages = [
 ];
 
 const AUTOPLAY_INTERVAL = 3000; // 3 seconds
+const SLIDES_PER_VIEW = 5;
 
 const Gallery = () => {
   const carouselRef = useRef<any>(null);
@@ -46,48 +48,70 @@ const Gallery = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Create chunks of 5 images for sliding
+  const imageChunks = galleryImages.reduce((resultArray: any[], item, index) => {
+    const chunkIndex = Math.floor(index / SLIDES_PER_VIEW);
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [];
+    }
+    resultArray[chunkIndex].push(item);
+    return resultArray;
+  }, []);
+
   return (
-    <div className="container mx-auto px-4 pt-24 min-h-screen">
-      <h1 className="text-4xl font-bold mb-8 text-center">Gallery</h1>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="container mx-auto px-4 pt-24 min-h-screen"
+    >
+      <motion.h1
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="text-4xl font-bold mb-8 text-center"
+      >
+        Gallery
+      </motion.h1>
       <div className="flex justify-center">
-        <div className="w-full max-w-3xl">
+        <div className="w-full">
           <Carousel
             ref={carouselRef}
             opts={{
               loop: true,
-              align: "center",
+              align: "start",
               dragFree: false,
               skipSnaps: false,
-              slidesToScroll: 1,
             }}
             className="relative"
             orientation="horizontal"
           >
             <CarouselContent>
-              {galleryImages.map((img, idx) => (
-                <CarouselItem key={idx} className="flex flex-col items-center">
-                  <div className="block overflow-hidden rounded-lg shadow-lg w-full">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="object-cover w-full h-[600px] mx-auto transition-transform duration-300 hover:scale-105"
-                    />
+              {imageChunks.map((chunk, chunkIndex) => (
+                <CarouselItem key={chunkIndex} className="basis-full">
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    {chunk.map((img: any, imgIndex: number) => (
+                      <motion.div
+                        key={imgIndex}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg"
+                      >
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-[200px] object-cover"
+                        />
+                      </motion.div>
+                    ))}
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <style>
-              {`
-                [aria-roledescription='carousel'] [role='button'], 
-                [aria-roledescription='carousel'] .embla__dots {
-                  display: none !important;
-                }
-              `}
-            </style>
           </Carousel>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
