@@ -16,6 +16,8 @@ export const ParticleCanvas = () => {
       y: number;
       vx: number;
       vy: number;
+      color: string;
+      alpha: number;
     }> = [];
 
     const resize = () => {
@@ -25,14 +27,14 @@ export const ParticleCanvas = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2
+        vy: (Math.random() - 0.5) * 2,
+        color: '#1A4D2E', // Dark forest green
+        alpha: Math.random() * 0.5 + 0.2 // Varied opacity between 0.2 and 0.7
       }));
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#888';
-      ctx.globalAlpha = 0.5;
 
       particles.forEach((particle, i) => {
         particle.x += particle.vx;
@@ -42,6 +44,8 @@ export const ParticleCanvas = () => {
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
         ctx.beginPath();
+        ctx.fillStyle = particle.color;
+        ctx.globalAlpha = particle.alpha;
         ctx.arc(particle.x, particle.y, 1.5, 0, Math.PI * 2);
         ctx.fill();
 
@@ -53,8 +57,8 @@ export const ParticleCanvas = () => {
 
           if (distance < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = '#888';
-            ctx.globalAlpha = (120 - distance) / 120 * 0.5;
+            ctx.strokeStyle = '#1A4D2E'; // Same dark green for connecting lines
+            ctx.globalAlpha = (120 - distance) / 120 * 0.3;
             ctx.lineWidth = 0.7;
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
