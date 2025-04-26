@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
@@ -8,7 +7,7 @@ import { QRCodeSVG } from 'qrcode.react';
 
 const Contact = () => {
   const contactInfo = {
-    name: "Arif Mahmud",
+    name: "Arif Mahmud Pranto",
     phone: "+8801915822266",
     email: "mail@arifmahmud.com",
     company: "IT Support BD",
@@ -19,6 +18,7 @@ const Contact = () => {
 
   const vCardData = `BEGIN:VCARD
 VERSION:3.0
+N:Pranto;Arif Mahmud;;;
 FN:${contactInfo.name}
 ORG:${contactInfo.company}
 TITLE:${contactInfo.role}
