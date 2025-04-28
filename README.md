@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# 👋 Hi, I'm Arif Mahmud Pranto
 
-## Project info
+🎯 **IT Professional | Web Designer | Network & Security Specialist**
 
-**URL**: https://lovable.dev/projects/0abf37af-10b6-45e8-89dc-bdbacc3383cf
+📍 Based in Gazipur, Bangladesh
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🧑‍💻 About Me
 
-**Use Lovable**
+I'm an experienced IT professional and web designer with over a decade of expertise in:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0abf37af-10b6-45e8-89dc-bdbacc3383cf) and start prompting.
+- **Networking & Security**: Proficient in Cisco and MikroTik router configurations, firewall management, and enterprise network security.
+- **Server Administration**: Skilled in managing both Windows and Linux servers, ensuring optimal performance and security.
+- **Web Development**: Specializing in creating responsive and user-friendly websites using WordPress, HTML5, CSS3, JavaScript, PHP, and MySQL.
+- **Technical Support**: Providing comprehensive IT support, including hardware and software troubleshooting, network diagnostics, and customer service.
+- **Application Development**: Developing custom applications tailored to client needs.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🏆 Certifications & Achievements
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Cisco Certified Network Associate (CCNA)**: Completed the CCNA course in Enterprise Networking, Security, and Automation, gaining hands-on experience in configuring, troubleshooting, and securing enterprise network devices. :contentReference[oaicite:1]{index=1}
+- **Founder of IT Support BD**: Established a platform offering reliable IT solutions and resources in Bangladesh. :contentReference[oaicite:2]{index=2}
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📚 Education
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Bachelor of Arts (BA)**: Jatir Pita Bangabandhu College (2015–2018)
+- **Higher Secondary Certificate (HSC)**: Informatics Practices, Jatir Pita Bangabandhu College (2011–2013)
+- **Bachelor of Business Administration (BBA)**: Informatics Practices, Jatir Pita Bangabandhu College (2020–2024)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Technical Skills
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- **Networking**: Cisco, MikroTik, Sophos
+- **Operating Systems**: Windows, Linux
+- **Web Technologies**: HTML5, CSS3, JavaScript, PHP, MySQL, WordPress
+- **Tools & Platforms**: GitHub, Firebase, AWS, DigitalOcean, Netlify
+- **Design Frameworks**: Tailwind CSS, Bootstrap, Sass
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🌐 Online Presence
 
-**Use GitHub Codespaces**
+- **Website**: [arifmahmud.com](https://arifmahmud.com)
+- **Blog**: [blog.arifmahmud.com](https://blog.arifmahmud.com)
+- **GitHub**: [github.com/pranto48](https://github.com/pranto48)
+- **YouTube**: [youtube.com/c/arifmahmud](https://www.youtube.com/c/arifmahmudpranto)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📬 Contact Me
 
-This project is built with:
+- **Email**: [mail@arifmahmud.com](mailto:mail@arifmahmud.com)
+- **Location**: Gazipur-1750, Bangladesh
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0abf37af-10b6-45e8-89dc-bdbacc3383cf) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Thank you for visiting my profile! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's connect and make something great together!
