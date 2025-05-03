@@ -1,9 +1,23 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, Server, Shield, Globe, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Clock, Server, Shield, Globe, Wrench, Network, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
+  {
+    icon: <Network className="h-8 w-8 text-primary" />,
+    title: "Professional Network Monitoring",
+    description: "Complete network monitoring solution using Nagios and NagVis. Real-time alerts and custom dashboards.",
+    pricing: [
+      "Flat Fee: $200",
+      "Setup completed within 5 days",
+      "Full system training included"
+    ],
+    note: "A comprehensive solution that enhances your network's reliability with professional monitoring tools.",
+    link: "/network-monitoring"
+  },
   {
     icon: <Clock className="h-8 w-8 text-primary" />,
     title: "Network Services",
@@ -99,14 +113,14 @@ const Services = () => {
             transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
             whileHover={{ scale: 1.03 }}
           >
-            <Card className="transition-all duration-300 hover:shadow-lg bg-background/80 backdrop-blur-sm border-primary/20">
+            <Card className="transition-all duration-300 hover:shadow-lg bg-background/80 backdrop-blur-sm border-primary/20 h-full flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
                 {service.icon}
                 <CardTitle>{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col">
                 <p className="mb-4 text-muted-foreground">{service.description}</p>
-                <div className="space-y-2">
+                <div className="space-y-2 mb-4">
                   <h4 className="font-semibold">Pricing:</h4>
                   <ul className="list-disc list-inside space-y-1 text-sm">
                     {service.pricing.map((price, idx) => (
@@ -117,6 +131,15 @@ const Services = () => {
                     Note: {service.note}
                   </p>
                 </div>
+                {service.link && (
+                  <div className="mt-auto pt-4">
+                    <Button variant="outline" asChild className="w-full">
+                      <Link to={service.link} className="flex items-center justify-center gap-2">
+                        View Details <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </motion.div>

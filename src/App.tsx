@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import Gallery from "./pages/Gallery";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import NetworkMonitoring from "./pages/NetworkMonitoring";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/ScrollToTop";
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/network-monitoring" element={<NetworkMonitoring />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
