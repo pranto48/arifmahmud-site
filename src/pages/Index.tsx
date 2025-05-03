@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
@@ -6,6 +7,15 @@ import { ParticlesBackground } from "../components/Particles";
 import { TypeAnimation } from 'react-type-animation';
 
 const Index = () => {
+  const socialLinks = [
+    { icon: Facebook, url: "https://facebook.com/arifmahmudpranto", label: "Facebook" },
+    { icon: Youtube, url: "https://www.youtube.com/arifmahmudpranto", label: "YouTube" },
+    { icon: Linkedin, url: "https://www.linkedin.com/in/pranto48/", label: "LinkedIn" },
+    { icon: Github, url: "https://github.com/pranto48", label: "GitHub" },
+    { icon: Twitter, url: "https://twitter.com/pranto48", label: "Twitter" },
+    { icon: Instagram, url: "https://www.instagram.com/pranto48/", label: "Instagram" },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -50,28 +60,20 @@ const Index = () => {
           <Link to="/contact">Get in Touch</Link>
         </Button>
       </div>
-      <div className="flex gap-6 text-muted-foreground">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Facebook className="h-6 w-6" />
-        </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Youtube className="h-6 w-6" />
-        </a>
-        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Globe className="h-6 w-6" />
-        </a>
-        <a href="https://www.linkedin.com/in/pranto48/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Linkedin className="h-6 w-6" />
-        </a>
-        <a href="https://github.com/pranto48" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Github className="h-6 w-6" />
-        </a>
-        <a href="https://twitter.com/pranto48" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Twitter className="h-6 w-6" />
-        </a>
-        <a href="https://www.instagram.com/pranto48" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-          <Instagram className="h-6 w-6" />
-        </a>
+      <div className="flex flex-wrap justify-center gap-6 text-muted-foreground">
+        {socialLinks.map((social, index) => (
+          <motion.a 
+            key={index}
+            href={social.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-primary transition-colors"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <social.icon className="h-6 w-6" />
+          </motion.a>
+        ))}
       </div>
     </motion.div>
   );

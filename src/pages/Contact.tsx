@@ -1,8 +1,9 @@
+
 import { motion } from "framer-motion";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
-import { Facebook, Youtube, Phone, Mail, MapPin, QrCode, UserPlus } from "lucide-react";
+import { Facebook, Youtube, Phone, Mail, MapPin, QrCode, UserPlus, Twitter, Instagram, Linkedin, Globe } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
 const Contact = () => {
@@ -13,7 +14,14 @@ const Contact = () => {
     company: "IT Support BD",
     role: "Founder",
     location: "Kabirpur, Ashulia, Dhaka, Bangladesh",
-    photo: "/lovable-uploads/4007d0de-0116-401a-a8f5-f5541cbbe3ac.png"
+    photo: "/lovable-uploads/4007d0de-0116-401a-a8f5-f5541cbbe3ac.png",
+    social: {
+      facebook: "https://facebook.com/arifmahmudpranto",
+      twitter: "https://twitter.com/pranto48",
+      instagram: "https://www.instagram.com/pranto48/",
+      linkedin: "https://www.linkedin.com/in/pranto48/",
+      youtube: "https://www.youtube.com/arifmahmudpranto"
+    }
   };
 
   const vCardData = `BEGIN:VCARD
@@ -40,12 +48,20 @@ END:VCARD`;
     window.URL.revokeObjectURL(url);
   };
 
+  const socialMediaLinks = [
+    { icon: Facebook, url: contactInfo.social.facebook, label: "Facebook" },
+    { icon: Twitter, url: contactInfo.social.twitter, label: "Twitter" },
+    { icon: Instagram, url: contactInfo.social.instagram, label: "Instagram" },
+    { icon: Linkedin, url: contactInfo.social.linkedin, label: "LinkedIn" },
+    { icon: Youtube, url: contactInfo.social.youtube, label: "YouTube" }
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto px-4 pt-24 min-h-screen"
+      className="container mx-auto px-4 pt-24 pb-16 min-h-screen"
     >
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
         <div className="bg-card rounded-lg p-6 shadow-lg">
@@ -80,22 +96,28 @@ END:VCARD`;
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <a href="https://facebook.com/example" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <Facebook className="w-5 h-5" />
-                </Button>
-              </a>
-              <a href="https://youtube.com/example" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <Youtube className="w-5 h-5" />
-                </Button>
-              </a>
-              <a href={`https://wa.me/${contactInfo.phone.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <Phone className="w-5 h-5" />
-                </Button>
-              </a>
+            <div>
+              <h3 className="font-medium mb-2">Follow Me</h3>
+              <div className="flex flex-wrap gap-3">
+                {socialMediaLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.label}
+                  >
+                    <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
+                      <social.icon className="w-5 h-5" />
+                    </Button>
+                  </a>
+                ))}
+                <a href={`https://wa.me/${contactInfo.phone.replace('+', '')}`} target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                  <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
+                    <Phone className="w-5 h-5" />
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
