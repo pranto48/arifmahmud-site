@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun, Home } from "lucide-react";
+import { Moon, Sun, Home, Info, Briefcase, BookText, ImageIcon, Settings, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "../hooks/useTheme";
 import { useScroll } from "../hooks/useScroll";
@@ -27,24 +27,30 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-6">
           {[
-            { path: "/about", label: "About" },
-            { path: "/projects", label: "Projects" },
-            { path: "/blog", label: "Blog" },
-            { path: "/gallery", label: "Gallery" },
-            { path: "/services", label: "Services" },
-            { path: "/contact", label: "Contact" }
+            { path: "/about", label: "About", icon: Info },
+            { path: "/projects", label: "Projects", icon: Briefcase },
+            { path: "/blog", label: "Blog", icon: BookText },
+            { path: "/gallery", label: "Gallery", icon: ImageIcon },
+            { path: "/services", label: "Services", icon: Settings },
+            { path: "/contact", label: "Contact", icon: Mail }
           ].map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className="relative group"
+              className="relative group flex flex-col items-center"
             >
-              <span className={cn(
-                "hover:text-primary/80 transition capitalize",
-                isActive(item.path) && "text-primary"
-              )}>
-                {item.label}
-              </span>
+              <div className="flex items-center gap-1">
+                <item.icon className={cn(
+                  "w-4 h-4 transition",
+                  isActive(item.path) ? "text-primary" : "text-foreground/70"
+                )} />
+                <span className={cn(
+                  "hover:text-primary/80 transition capitalize",
+                  isActive(item.path) && "text-primary"
+                )}>
+                  {item.label}
+                </span>
+              </div>
               <motion.div
                 className="absolute -bottom-1 left-0 h-0.5 bg-primary"
                 initial={{ width: isActive(item.path) ? "100%" : "0%" }}
