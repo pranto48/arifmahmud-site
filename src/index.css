@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
 
@@ -94,4 +95,60 @@
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* Navigation Hover Effects */
+.nav-item {
+  position: relative;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 0 6px;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: -2;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  transition: all 0.5s;
+  filter: blur(15px);
+  z-index: -3;
+  opacity: 0;
+}
+
+.nav-item:hover {
+  min-width: 120px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+}
+
+.nav-item:hover::after {
+  opacity: 0.5;
+}
+
+.nav-item-hovered {
+  min-width: 120px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }

@@ -15,18 +15,20 @@ const Navbar = () => {
   const location = useLocation();
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const isActive = (path: string) => {
     return location.pathname === path || (location.pathname === '/' && path === '/');
   };
 
   const menuItems = [
-    { path: "/about", label: "About", icon: Info },
-    { path: "/projects", label: "Projects", icon: Briefcase },
-    { path: "/blog", label: "Blog", icon: BookText },
-    { path: "/gallery", label: "Gallery", icon: ImageIcon },
-    { path: "/services", label: "Services", icon: Settings },
-    { path: "/contact", label: "Contact", icon: Mail }
+    { path: "/", label: "Home", icon: Home, gradient: { i: "#a955ff", j: "#ea51ff" } },
+    { path: "/about", label: "About", icon: Info, gradient: { i: "#56CCF2", j: "#2F80ED" } },
+    { path: "/projects", label: "Projects", icon: Briefcase, gradient: { i: "#FF9966", j: "#FF5E62" } },
+    { path: "/blog", label: "Blog", icon: BookText, gradient: { i: "#80FF72", j: "#7EE8FA" } },
+    { path: "/gallery", label: "Gallery", icon: ImageIcon, gradient: { i: "#ffa9c6", j: "#f434e2" } },
+    { path: "/services", label: "Services", icon: Settings, gradient: { i: "#FFC857", j: "#E9724C" } },
+    { path: "/contact", label: "Contact", icon: Mail, gradient: { i: "#9b87f5", j: "#D946EF" } }
   ];
 
   const toggleMobileMenu = () => {
@@ -50,27 +52,30 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className="relative group flex flex-col items-center"
+                className="relative group nav-item"
+                onMouseEnter={() => setHoveredItem(item.path)}
+                onMouseLeave={() => setHoveredItem(null)}
+                style={{
+                  '--i': item.gradient.i,
+                  '--j': item.gradient.j,
+                } as React.CSSProperties}
               >
-                <div className="flex items-center gap-1">
+                <div className={cn(
+                  "flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300",
+                  hoveredItem === item.path ? "nav-item-hovered text-white" : "",
+                  isActive(item.path) ? "text-primary" : "text-foreground/70"
+                )}>
                   <item.icon className={cn(
-                    "w-4 h-4 transition",
-                    isActive(item.path) ? "text-primary" : "text-foreground/70"
+                    "w-5 h-5 transition",
+                    hoveredItem === item.path ? "scale-0" : "scale-100"
                   )} />
                   <span className={cn(
-                    "hover:text-primary/80 transition capitalize",
-                    isActive(item.path) && "text-primary"
+                    "transition capitalize",
+                    hoveredItem === item.path ? "scale-100" : ""
                   )}>
                     {item.label}
                   </span>
                 </div>
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                  initial={{ width: isActive(item.path) ? "100%" : "0%" }}
-                  animate={{ width: isActive(item.path) ? "100%" : "0%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.2 }}
-                />
               </Link>
             ))}
             <Button
@@ -128,6 +133,10 @@ const Navbar = () => {
                     : "hover:bg-primary/5"
                 )}
                 onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  '--i': item.gradient.i,
+                  '--j': item.gradient.j,
+                } as React.CSSProperties}
               >
                 <item.icon className="w-5 h-5" />
                 <span>{item.label}</span>
