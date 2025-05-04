@@ -47,7 +47,7 @@ const Index = () => {
         <TypeAnimation
           sequence={[
             500,
-            'I\'m an IT professional and web designer based in Dhaka, Bangladesh. I specialize in building beautiful and functional web experiences.',
+            'I\'m an IT professional and web designer based in Kabirpur, Ashulia, Dhaka, Bangladesh. I specialize in building beautiful and functional web experiences.',
           ]}
           speed={50}
           repeat={0}
@@ -84,6 +84,7 @@ const Index = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.2 }}
       >
+        <h2 className="text-2xl font-bold mb-6">Featured Service</h2>
         <Card className="bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 overflow-hidden">
           <CardContent className="p-0">
             <div className="flex flex-col md:flex-row">
