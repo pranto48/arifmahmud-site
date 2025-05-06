@@ -60,7 +60,7 @@ const About = () => {
         <ul className="space-y-4 list-none pl-0">
           <li>S.S.C. from Pagla Government High School, Narayanganj</li>
           <li>H.S.C. from Jatir Pita Bangabandhu Government College, Gazipur</li>
-          <li>BBA from Jatir Pita Bangabandhu Government College, Gazipur</li>
+          <li>B.B.A. from Jatir Pita Bangabandhu Government College, Gazipur</li>
         </ul>
       </div>
 
