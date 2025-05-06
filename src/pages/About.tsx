@@ -23,15 +23,36 @@ const About = () => {
         <div className="prose dark:prose-invert max-w-none">
           <h2 className="text-2xl font-semibold mb-4">Hello there!</h2>
           <p className="text-lg mb-6">
-            My name is Arif Mahmud Pranto, and I am an IT professional and web designer based in Dhaka, Bangladesh. I have extensive experience in various aspects of IT, including network security, firewall management, Windows and Linux server system administration, cybersecurity, operating systems, communication and networking, technical support, hardware and software handling, customer support, Management Information Systems (MIS), and application development.
+            My name is Arif Mahmud Pranto, and I am an IT professional and web designer based in Kabirpur, Ashulia, Dhaka, Bangladesh. I have extensive experience in various aspects of IT, including network security, firewall management, Windows and Linux server system administration, cybersecurity, operating systems, communication and networking, technical support, hardware and software handling, customer support, Management Information Systems (MIS), and application development.
           </p>
           <p className="text-lg mb-6">
             When it comes to web design, I am skilled in various programming languages and platforms. In particular, I have a keen eye for creating visually appealing and user-friendly websites using WordPress. With my unique blend of technical and creative skills, I am passionate about creating digital experiences that make a difference.
           </p>
-          <p className="text-lg mb-6">
-            Currently, I serve as a Senior Supervisor at Interstoff Apparels Ltd. in Gazipur, where I specialize in operating systems, communication and networking, technical support, hardware and software handling, network security, customer support, MIS, and application development. Additionally, I am a partner at IT Support BD and Web for Bangladesh, where I have devoted a significant portion of my practice to municipal finance over the past twenty-five years.
-          </p>
         </div>
+      </div>
+
+      <div className="prose dark:prose-invert max-w-none mb-12">
+        <h3 className="text-2xl font-semibold mb-6">Professional Experience</h3>
+        <p className="text-lg mb-6">
+          I have been working full-time as a Server and Network Administrator for over 12 years at a private company. My responsibilities include:
+        </p>
+        <ul className="space-y-2 list-disc pl-6">
+          <li>Network Security: Implementing and managing security measures to protect network infrastructure.</li>
+          <li>Firewall Management: Configuring and maintaining firewalls to safeguard against unauthorized access.</li>
+          <li>Server Administration: Managing both Windows and Linux servers to ensure optimal performance.</li>
+          <li>Communication & Networking: Overseeing network operations and ensuring reliable communication systems.</li>
+          <li>NAS Server Maintenance: Maintaining Network-Attached Storage systems for efficient data storage and access.</li>
+          <li>System Monitoring: Continuously monitoring systems to detect and resolve issues promptly.</li>
+          <li>Technical Support: Providing support for hardware and software-related issues.</li>
+          <li>Customer Support: Assisting clients with IT-related inquiries and solutions.</li>
+          <li>MIS & Application Development: Developing Management Information Systems and other applications to streamline operations.</li>
+        </ul>
+        <p className="text-lg mt-6 mb-6">
+          In addition to my full-time role, I am the owner of IT Support BD and Web for Bangladesh, where I have been dedicated to supporting municipal finance and digital transformation projects for over 12 years. These initiatives focus on enhancing local economic development and digital capacity building within municipalities.
+        </p>
+        <p className="text-lg mb-6">
+          Currently, I serve as a Senior Supervisor at Interstoff Apparels Ltd. in Gazipur, where I specialize in operating systems, communication and networking, technical support, hardware and software handling, network security, customer support, MIS, and application development. Additionally, I am a partner at IT Support BD and Web for Bangladesh, where I have devoted a significant portion of my practice to municipal finance over the past twenty-five years.
+        </p>
       </div>
 
       <div className="prose dark:prose-invert max-w-none mb-12">
@@ -62,7 +83,7 @@ const About = () => {
         </div>
         <div className="flex items-center gap-2">
           <MapPin className="h-5 w-5" />
-          <span>Gazipur-1750, Bangladesh</span>
+          <span>Kabirpur, Ashulia, Dhaka, Bangladesh</span>
         </div>
       </div>
 
