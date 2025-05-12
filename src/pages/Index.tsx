@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Youtube, Globe, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { ParticlesBackground } from "../components/Particles";
 import { TypeAnimation } from 'react-type-animation';
+import GoogleAdsense from "../components/GoogleAdsense";
 
 const Index = () => {
   const socialLinks = [
@@ -74,6 +75,11 @@ const Index = () => {
             <social.icon className="h-6 w-6" />
           </motion.a>
         ))}
+      </div>
+      
+      {/* Google AdSense Component */}
+      <div className="w-full max-w-4xl my-8">
+        <GoogleAdsense adSlot="7782227990" fullWidth={true} />
       </div>
     </motion.div>
   );

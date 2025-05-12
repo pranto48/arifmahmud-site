@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
 import { Button } from "../components/ui/button";
+import GoogleAdsense from "../components/GoogleAdsense";
 
 const About = () => {
   return (
@@ -31,6 +32,11 @@ const About = () => {
         </div>
       </div>
 
+      {/* Google AdSense after the intro section */}
+      <div className="w-full mb-8">
+        <GoogleAdsense adSlot="7782227990" fullWidth={true} />
+      </div>
+
       <div className="prose dark:prose-invert max-w-none mb-12">
         <h3 className="text-2xl font-semibold mb-6">Professional Experience</h3>
         <p className="text-lg mb-6">
@@ -53,6 +59,11 @@ const About = () => {
         <p className="text-lg mb-6">
           Currently, I serve as a Senior Supervisor at Interstoff Apparels Ltd. in Gazipur, where I specialize in operating systems, communication and networking, technical support, hardware and software handling, network security, customer support, MIS, and application development. Additionally, I am a partner at IT Support BD and Web for Bangladesh, where I have devoted a significant portion of my practice to municipal finance over the past twenty-five years.
         </p>
+      </div>
+
+      {/* Google AdSense in the middle of content */}
+      <div className="w-full mb-8">
+        <GoogleAdsense adSlot="7782227990" fullWidth={true} />
       </div>
 
       <div className="prose dark:prose-invert max-w-none mb-12">
@@ -87,12 +98,17 @@ const About = () => {
         </div>
       </div>
 
-      <div>
+      <div className="mb-8">
         <Button asChild>
           <a href="https://blog.arifmahmud.com/p/about-me.html" target="_blank" rel="noopener noreferrer">
             View Resume
           </a>
         </Button>
+      </div>
+
+      {/* Google AdSense at the bottom of the page */}
+      <div className="w-full mb-8">
+        <GoogleAdsense adSlot="7782227990" fullWidth={true} />
       </div>
     </motion.div>
   );
