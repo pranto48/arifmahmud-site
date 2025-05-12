@@ -1,4 +1,3 @@
-
 import {
   Carousel,
   CarouselContent,
@@ -6,6 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import GoogleAdsense from "../components/GoogleAdsense";
 
 // Select all available gallery images
 const galleryImages = [
@@ -73,6 +73,7 @@ const Gallery = () => {
       >
         Gallery
       </motion.h1>
+      
       <div className="flex justify-center">
         <div className="w-full">
           <Carousel
@@ -110,6 +111,15 @@ const Gallery = () => {
             </CarouselContent>
           </Carousel>
         </div>
+      </div>
+      
+      {/* Bottom ad - placed after content so it doesn't disrupt the user experience */}
+      <div className="mt-16 mb-8">
+        <GoogleAdsense 
+          adSlot="7782227990" 
+          fullWidth={true}
+          className="bg-background/30 backdrop-blur-sm rounded-lg p-2" 
+        />
       </div>
     </motion.div>
   );

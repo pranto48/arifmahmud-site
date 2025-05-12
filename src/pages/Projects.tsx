@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ExternalLink } from "lucide-react";
+import GoogleAdsense from "../components/GoogleAdsense";
 
 const projects = [
   {
@@ -55,6 +55,17 @@ const Projects = () => {
       className="container mx-auto px-4 pt-24 min-h-screen"
     >
       <h1 className="text-4xl font-bold mb-8">Projects</h1>
+      
+      {/* Top ad - smaller height to be less intrusive */}
+      <div className="mb-10">
+        <GoogleAdsense 
+          adSlot="7782227990" 
+          fullWidth={true} 
+          height="120px"
+          className="bg-background/50 rounded-md" 
+        />
+      </div>
+      
       <motion.div 
         variants={container}
         initial="hidden"

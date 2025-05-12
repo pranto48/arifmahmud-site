@@ -6,13 +6,17 @@ interface AdSenseProps {
   adFormat?: string;
   fullWidth?: boolean;
   style?: React.CSSProperties;
+  className?: string;
+  height?: string;
 }
 
 const GoogleAdsense: React.FC<AdSenseProps> = ({ 
   adSlot = "7782227990",
   adFormat = "auto",
   fullWidth = false,
-  style = { display: 'block', textAlign: 'center' }
+  style = { display: 'block', textAlign: 'center' },
+  className = "",
+  height = "320px"
 }) => {
   useEffect(() => {
     try {
@@ -24,13 +28,13 @@ const GoogleAdsense: React.FC<AdSenseProps> = ({
   }, []);
 
   return (
-    <div className="ad-container my-4" style={style}>
+    <div className={`ad-container my-4 ${className}`} style={style}>
       <ins
         className="adsbygoogle"
         style={{
           display: 'block',
           width: fullWidth ? '100%' : undefined,
-          height: '320px',
+          height: height,
           overflow: 'hidden'
         }}
         data-ad-client="ca-pub-2231823251539859"
