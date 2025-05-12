@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/network-monitoring" element={<NetworkMonitoring />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Catch all routes - 404 page */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ScrollToTop />
