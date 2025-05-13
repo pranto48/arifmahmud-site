@@ -57,7 +57,7 @@ const About = () => {
           In addition to my full-time role, I am the owner of IT Support BD and Web for Bangladesh, where I have been dedicated to supporting municipal finance and digital transformation projects for over 12 years. These initiatives focus on enhancing local economic development and digital capacity building within municipalities.
         </p>
         <p className="text-lg mb-6">
-          Currently, I serve as a Senior Supervisor at Interstoff Apparels Ltd. in Gazipur, where I specialize in operating systems, communication and networking, technical support, hardware and software handling, network security, customer support, MIS, and application development. Additionally, I am a partner at IT Support BD and Web for Bangladesh, where I have devoted a significant portion of my practice to municipal finance over the past twenty-five years.
+          Currently, I serve as an IT Executive at a company in Bangladesh, where I specialize in operating systems, communication and networking, technical support, hardware and software handling, network security, customer support, MIS, and application development. Additionally, I am a partner at IT Support BD and Web for Bangladesh, where I have devoted a significant portion of my practice to municipal finance over the past twenty-five years.
         </p>
       </div>
 
