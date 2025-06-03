@@ -125,16 +125,18 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
 
   return (
     <div className="w-full h-[600px] relative overflow-hidden bg-black rounded-lg">
-      <style jsx>{`
-        @keyframes spin {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(360deg); }
-        }
-        @keyframes spinRevert {
-          from { transform: rotateY(360deg); }
-          to { transform: rotateY(0deg); }
-        }
-      `}</style>
+      <style>
+        {`
+          @keyframes spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+          }
+          @keyframes spinRevert {
+            from { transform: rotateY(360deg); }
+            to { transform: rotateY(0deg); }
+          }
+        `}
+      </style>
       
       <div 
         ref={dragContainerRef}
@@ -181,7 +183,7 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
               fontFamily: 'serif'
             }}
           >
-            Gallery Carousel
+            Arif Gallery
           </p>
         </div>
         
