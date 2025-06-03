@@ -11,9 +11,9 @@ interface Carousel3DProps {
 const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
   const dragContainerRef = useRef<HTMLDivElement>(null);
   const spinContainerRef = useRef<HTMLDivElement>(null);
+  const radiusRef = useRef(240); // Use ref to maintain radius state
 
   // Configuration
-  const radius = 240;
   const autoRotate = true;
   const rotateSpeed = -60;
   const imgWidth = 120;
@@ -35,7 +35,7 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
     // Initialize carousel
     const init = (delayTime?: number) => {
       for (let i = 0; i < aEle.length; i++) {
-        aEle[i].style.transform = `rotateY(${i * (360 / aEle.length)}deg) translateZ(${radius}px)`;
+        aEle[i].style.transform = `rotateY(${i * (360 / aEle.length)}deg) translateZ(${radiusRef.current}px)`;
         aEle[i].style.transition = "transform 1s";
         aEle[i].style.transitionDelay = delayTime ? `${delayTime}s` : `${(aEle.length - i) / 4}s`;
       }
@@ -102,16 +102,20 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const d = e.deltaY / -20;
-      const newRadius = Math.max(100, Math.min(400, radius + d));
+      // Use deltaY for better cross-browser compatibility
+      const delta = e.deltaY > 0 ? -20 : 20;
+      radiusRef.current = Math.max(100, Math.min(400, radiusRef.current + delta));
+      
+      // Re-initialize with new radius
       for (let i = 0; i < aEle.length; i++) {
-        aEle[i].style.transform = `rotateY(${i * (360 / aEle.length)}deg) translateZ(${newRadius}px)`;
+        aEle[i].style.transform = `rotateY(${i * (360 / aEle.length)}deg) translateZ(${radiusRef.current}px)`;
+        aEle[i].style.transition = "transform 0.1s";
       }
     };
 
     // Add event listeners
     odrag.addEventListener('pointerdown', handlePointerDown);
-    odrag.addEventListener('wheel', handleWheel);
+    odrag.addEventListener('wheel', handleWheel, { passive: false });
 
     // Initialize after delay
     setTimeout(() => init(), 1000);
