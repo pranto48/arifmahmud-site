@@ -1,7 +1,5 @@
 
-import type { RecursivePartial, IOptions } from "tsparticles-slim"; // Updated import
-
-export const particlesConfig: RecursivePartial<IOptions> = {
+export const particlesConfig = {
   particles: {
     number: {
       value: 50,
