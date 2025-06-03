@@ -13,7 +13,7 @@ export const ParticlesBackground = () => {
     <Particles
       id="tsparticles"
       init={particlesInit}
-      options={particlesConfig}
+      options={particlesConfig as any}
       className="absolute inset-0 -z-10"
     />
   );

@@ -51,10 +51,10 @@ export const particlesConfig = {
     move: {
       enable: true,
       speed: 2,
-      direction: "none",
+      direction: "none" as const,
       random: false,
       straight: false,
-      out_mode: "out",
+      out_mode: "out" as const,
       bounce: false,
       attract: {
         enable: false,
@@ -64,15 +64,15 @@ export const particlesConfig = {
     }
   },
   interactivity: {
-    detect_on: "canvas",
+    detect_on: "canvas" as const,
     events: {
       onhover: {
         enable: true,
-        mode: "grab"
+        mode: "grab" as const
       },
       onclick: {
         enable: true,
-        mode: "push"
+        mode: "push" as const
       },
       resize: true
     },
