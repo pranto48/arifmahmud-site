@@ -1,11 +1,7 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { useEffect, useRef } from "react";
+
 import { motion } from "framer-motion";
 import GoogleAdsense from "../components/GoogleAdsense";
+import Carousel3D from "../components/Carousel3D";
 
 // Select all available gallery images
 const galleryImages = [
@@ -31,33 +27,7 @@ const galleryImages = [
   },
 ];
 
-const AUTOPLAY_INTERVAL = 3000; // 3 seconds
-const SLIDES_PER_VIEW = 5;
-
 const Gallery = () => {
-  const carouselRef = useRef<any>(null);
-  const autoplayRef = useRef<any>();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current && carouselRef.current.api) {
-        carouselRef.current.api.scrollNext();
-      }
-    }, AUTOPLAY_INTERVAL);
-    autoplayRef.current = interval;
-    return () => clearInterval(interval);
-  }, []);
-
-  // Create chunks of 5 images for sliding
-  const imageChunks = galleryImages.reduce((resultArray: any[], item, index) => {
-    const chunkIndex = Math.floor(index / SLIDES_PER_VIEW);
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
-    }
-    resultArray[chunkIndex].push(item);
-    return resultArray;
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -74,44 +44,17 @@ const Gallery = () => {
         Gallery
       </motion.h1>
       
-      <div className="flex justify-center">
-        <div className="w-full">
-          <Carousel
-            ref={carouselRef}
-            opts={{
-              loop: true,
-              align: "start",
-              dragFree: false,
-              skipSnaps: false,
-            }}
-            className="relative"
-            orientation="horizontal"
-          >
-            <CarouselContent>
-              {imageChunks.map((chunk, chunkIndex) => (
-                <CarouselItem key={chunkIndex} className="basis-full">
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    {chunk.map((img: any, imgIndex: number) => (
-                      <motion.div
-                        key={imgIndex}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg"
-                      >
-                        <img
-                          src={img.src}
-                          alt={img.alt}
-                          className="w-full h-[200px] object-cover"
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </div>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="mb-8"
+      >
+        <p className="text-center text-gray-300 mb-4">
+          Click and drag to rotate • Scroll to zoom in/out
+        </p>
+        <Carousel3D images={galleryImages} />
+      </motion.div>
       
       {/* Bottom ad - placed after content so it doesn't disrupt the user experience */}
       <div className="mt-16 mb-8">
