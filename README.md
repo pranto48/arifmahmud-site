@@ -55,7 +55,7 @@ I'm an experienced IT professional and web designer with over a decade of expert
 ## 📬 Contact Me
 
 - **Email**: [mail@arifmahmud.com](mailto:mail@arifmahmud.com)
-- **Location**: Gazipur-1750, Bangladesh
+- **Location**: Dhaka, Bangladesh
 
 ---
 
